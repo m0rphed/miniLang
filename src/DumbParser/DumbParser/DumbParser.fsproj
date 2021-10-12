@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="SimpleLogger.fs" />
+        <Compile Include="Parser.fs" />
+        <Compile Include="Program.fs" />
+        <Folder Include="..\..\..\data">
+          <Link>data</Link>
+        </Folder>
+        <Content Include="..\..\..\data\fizzbuzz.dumbLang">
+          <Link>fizzbuzz.dumbLang</Link>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FParsec" Version="1.1.1" />
+    </ItemGroup>
+
+</Project>
