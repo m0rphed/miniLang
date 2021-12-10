@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="List.fs" />
+        <Compile Include="MiniMLAst.fs" />
+        <Compile Include="MiniMLTAst.fs" />
+        <Compile Include="TypeChecker.fs" />
+
+        <FsYacc Include="MiniMLParser.fsy">
+            <OtherFlags>--module MiniML.Compiler.Parser</OtherFlags>
+        </FsYacc>
+
+        <FsLex Include="MiniMLLexer.fsl">
+          <OtherFlags>--module MiniML.Compiler.Lexer --unicode</OtherFlags>
+        </FsLex>
+
+        <Compile Include="MiniMLParser.fs" />
+
+        <Compile Include="MiniMLLexer.fs" />
+    
+        <Compile Include="VM.fs" />
+        <Compile Include="MiniMLLang.fs" />
+        <Compile Include="Compile.fs" />
+        <Compile Include="MiniML.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="FSharp.Core" Version="5.0.0" />
+        <PackageReference Include="Argu" Version="6.1.1" />
+        <PackageReference Include="FParsec" Version="1.1.1" />
+        <PackageReference Include="FsLexYacc" Version="10.2.0" />
+        <PackageReference Include="FsLexYacc.Runtime" Version="10.2.0" />
+        <PackageReference Include="System.Runtime.Numerics" Version="4.3.0" />
+    </ItemGroup>
+</Project>
